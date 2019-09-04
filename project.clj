@@ -19,7 +19,9 @@
                  ]
   ;; ALIAS
   :aliases {
-            "migrate"  ["run" "-m" "tadam.db/migrate"]
-            "rollback" ["run" "-m" "tadam.db/rollback"]
+            "migrate"         ["run" "-m" "tadam.db/migrate"]
+            "rollback"        ["run" "-m" "tadam.db/rollback"]
+            "createsuperuser" ["run" "-m" "tadam.db/createsuperuser"]
+            "listsuperusers"  ["run" "-m" "tadam.db/listsuperusers"]
             }
   :repl-options {:init-ns tadam.core})
