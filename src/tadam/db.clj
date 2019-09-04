@@ -55,4 +55,9 @@
       )
     )
   )
+
+(defn listsuperusers
+  "List all superusers"
+  []
+  )
 ;;;; END SUPERUSERS
