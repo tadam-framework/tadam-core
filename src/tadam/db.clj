@@ -1,4 +1,4 @@
-(ns noticias-web.tadam.db
+(ns tadam.db
   (:require
    [environ.core :refer [env]]
    [migratus.core :as migratus]

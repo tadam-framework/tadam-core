@@ -1,4 +1,4 @@
-(ns noticias-web.tadam.forms
+(ns tadam.forms
   (:require
    [jkkramer.verily :as v]
    [tadam.utils :refer [lazy-contains?]]

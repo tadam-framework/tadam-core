@@ -1,4 +1,4 @@
-(ns noticias-web.tadam.templates
+(ns tadam.templates
   (:require
    [environ.core :refer [env]]
    [clojure.java.io :refer [resource]]

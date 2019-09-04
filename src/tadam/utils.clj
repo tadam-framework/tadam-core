@@ -1,4 +1,4 @@
-(ns noticias-web.tadam.utils)
+(ns tadam.utils)
 
 (defn get-params [req]
   ;; Get params request
