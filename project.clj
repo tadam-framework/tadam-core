@@ -1,4 +1,4 @@
-(defproject tadam "0.1.1"
+(defproject tadam "0.1.5"
   :description "First version"
   :url "https://github.com/tadam-framework/tadam"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
@@ -16,12 +16,9 @@
                  [jkkramer/verily "0.6.0"]
                  ;; Migrations
                  [migratus "1.2.4"]
+                 ;; Module is dedicated to cryptographic API
+                 [buddy/buddy-core "1.6.0"]
+                 [buddy/buddy-hashers "1.4.0"]
                  ]
   ;; ALIAS
-  :aliases {
-            "migrate"         ["run" "-m" "tadam.db/migrate"]
-            "rollback"        ["run" "-m" "tadam.db/rollback"]
-            "createsuperuser" ["run" "-m" "tadam.db/createsuperuser"]
-            "listsuperusers"  ["run" "-m" "tadam.db/listsuperusers"]
-            }
   :repl-options {:init-ns tadam.core})

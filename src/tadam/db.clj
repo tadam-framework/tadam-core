@@ -3,6 +3,7 @@
    [environ.core :refer [env]]
    [migratus.core :as migratus]
    [clojure.java.jdbc :as j]
+   [buddy.hashers :as hashers]
    ))
 
 (defn cast-data-db
@@ -70,12 +71,13 @@
       (prn-console "> Password: ")
       (let [password (read-line)]
         ;; Create superuser
-        (insert :users [{:first_name first-name :email email :password password}])
+        (insert :users [{:first_name first-name :email email :password (hashers/derive password) :role_id 1 :is_active true}])
         ;; Informs the user
         (prn-console "🎩Superuser created with great success 🥳!")))))
 
 (defn listsuperusers
   "List all superusers"
   []
-  )
+  (let [all-superusers (query_all ["SELECT first_name, email FROM users"])]
+    (doall (map #(prn (str (:first_name %) " - " (:email %))) all-superusers))))
 ;;;; END SUPERUSERS
