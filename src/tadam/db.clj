@@ -2,9 +2,9 @@
   (:require
    [environ.core :refer [env]]
    [migratus.core :as migratus]
+   [clojure.java.jdbc :as j]
    ))
 
-;;;; MIGRATIONS
 (defn cast-data-db
   "Cast data from project.clj and sets SQLite path to point to the resources folder"
   [raw-data]
@@ -13,6 +13,27 @@
       (assoc cast-data :subname (.getFile (clojure.java.io/resource (:subname cast-data)))))))
 
 (def db (cast-data-db (env :db)))
+
+;;;; QUERIES
+
+(defn query_all
+  "Query in database with multiple results"
+  [sql]
+  (j/query db sql))
+
+(defn query_one
+  "Query in database with one result"
+  [sql]
+  (into {} (query_all sql)))
+
+(defn insert
+  "Insert in database"
+  [table data]
+  (j/insert-multi! db table data))
+
+;;;; END QUERIES
+
+;;;; MIGRATIONS
 
 (def config-migrations {:store                :database
                         :migration-dir        "migrations/"
@@ -49,12 +70,9 @@
       (prn-console "> Password: ")
       (let [password (read-line)]
         ;; Create superuser
+        (insert :users [{:first_name first-name :email email :password password}])
         ;; Informs the user
-        (prn-console "🎩Superuser created with great success 🥳!")
-        )
-      )
-    )
-  )
+        (prn-console "🎩Superuser created with great success 🥳!")))))
 
 (defn listsuperusers
   "List all superusers"
