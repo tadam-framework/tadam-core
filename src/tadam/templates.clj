@@ -26,11 +26,11 @@
    {:status  200
     :headers {"Content-Type" "text/html"}
     :body    (s/render-file template params)})
-  ([template params session]
+  ([template params req]
    {:status  200
     :headers {"Content-Type" "text/html"}
     :body    (s/render-file template params)
-    :session session}))
+    :session (-> req :session)}))
 
 
 (defn render-JSON
