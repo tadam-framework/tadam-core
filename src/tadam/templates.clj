@@ -22,15 +22,11 @@
 
 (defn render-HTML
   ;; Render to HTML
-  ([template params]
-   {:status  200
-    :headers {"Content-Type" "text/html"}
-    :body    (s/render-file template params)})
-  ([template params req]
-   {:status  200
-    :headers {"Content-Type" "text/html"}
-    :body    (s/render-file template params)
-    :session (-> req :session)}))
+  [req template params]
+  {:status  200
+   :headers {"Content-Type" "text/html"}
+   :body    (s/render-file template params)
+   :session (-> req :session)})
 
 
 (defn render-JSON
@@ -41,8 +37,8 @@
    :body    (generate-string hash-map)})
 
 (defn render-404
-;; Render 404 HTML
-[]
-{:status  404
- :headers {"Content-Type" "text/html"}
- :body    (s/render-file "404.html" {})})
+  ;; Render 404 HTML
+  []
+  {:status  404
+   :headers {"Content-Type" "text/html"}
+   :body    (s/render-file "404.html" {})})
