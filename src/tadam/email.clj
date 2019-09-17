@@ -2,7 +2,13 @@
   (:require
    [environ.core :refer [env]]
    [postal.core :refer [send-message]]
+   [selmer.parser :as s]
    ))
+
+(defn render
+  "Render template by Email"
+  [template params]
+  (s/render-file template params))
 
 (defn send
   "Add session in request"

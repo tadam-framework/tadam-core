@@ -14,30 +14,29 @@
 (s/set-resource-path! (resource "templates") )
 
 (defn raw-HTML
-  ;; Render raw HTML
+  "Render raw HTML"
   [text params]
   {:status  200
    :headers {"Content-Type" "text/html"}
    :body    (s/render text params)})
 
 (defn render-HTML
-  ;; Render to HTML
+  "Render to HTML"
   [req template params]
   {:status  200
    :headers {"Content-Type" "text/html"}
    :body    (s/render-file template params)
    :session (-> req :session)})
 
-
 (defn render-JSON
-  ;; Render JSON
+  "Render JSON"
   [hash-map]
   {:status  200
    :headers {"Content-Type" "application/json"}
    :body    (generate-string hash-map)})
 
 (defn render-404
-  ;; Render 404 HTML
+  "Render 404 HTML"
   []
   {:status  404
    :headers {"Content-Type" "text/html"}
