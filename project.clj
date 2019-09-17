@@ -19,6 +19,8 @@
                  ;; Module is dedicated to cryptographic API
                  [buddy/buddy-core "1.6.0"]
                  [buddy/buddy-hashers "1.4.0"]
+                 ;; Send emails
+                 [com.draines/postal "2.0.3"]
                  ]
   ;; ALIAS
   :repl-options {:init-ns tadam.core})
