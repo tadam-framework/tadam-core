@@ -35,12 +35,12 @@
 (defn update
   "Update in database"
   [table data where]
-  (j/update! db-spec table data where))
+  (j/update! db table data where))
 
 (defn delete
   "Delete in database"
   [table data where]
-  (j/delete! db-spec table data where))
+  (j/delete! db table data where))
 
 ;;;; END QUERIES
 
