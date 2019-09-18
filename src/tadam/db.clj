@@ -32,6 +32,16 @@
   [table data]
   (j/insert-multi! db table data))
 
+(defn update
+  "Update in database"
+  [table data where]
+  (j/update! db-spec table data where))
+
+(defn delete
+  "Delete in database"
+  [table data where]
+  (j/delete! db-spec table data where))
+
 ;;;; END QUERIES
 
 ;;;; MIGRATIONS
