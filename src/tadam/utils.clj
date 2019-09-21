@@ -21,15 +21,21 @@
 
 (defn redirect
   "307 Temporary Redirect"
+  ([req url]
+   (-> (response/redirect url)
+       (assoc :session (-> req :session))
+       (assoc :status 307)))
+  ([req url status]
+   (-> (response/redirect url)
+       (assoc :session (-> req :session))
+       (assoc :status status))))
+
+(defn redirect-GET
+  "303 Temporary Redirect"
   [req url]
-  (-> (response/redirect url)
-      (assoc :session (-> req :session))
-      (assoc :status 307)))
+  (redirect req url 303))
 
 (defn redirect-permanent
   "308 Permanent Redirect"
   [req url]
-  (-> (response/redirect url)
-      (assoc :session (-> req :session))
-      (assoc :status 308)))
-
+  (redirect req url 303))
