@@ -30,12 +30,7 @@
        (assoc :session (-> req :session))
        (assoc :status status))))
 
-(defn redirect-GET
-  "303 Temporary Redirect"
-  [req url]
-  (redirect req url 303))
-
 (defn redirect-permanent
   "308 Permanent Redirect"
   [req url]
-  (redirect req url 303))
+  (redirect req url 308))
