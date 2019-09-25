@@ -20,11 +20,11 @@
   (some #{key} col))
 
 (defn redirect
-  "307 Temporary Redirect"
+  "303 See Other"
   ([req url]
    (-> (response/redirect url)
        (assoc :session (-> req :session))
-       (assoc :status 307)))
+       (assoc :status 303)))
   ([req url status]
    (-> (response/redirect url)
        (assoc :session (-> req :session))
