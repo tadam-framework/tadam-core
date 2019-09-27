@@ -3,15 +3,14 @@
    [environ.core :refer [env]]
    [clojure.java.io :refer [resource]]
    [selmer.parser :as s]
-   [cheshire.core :refer [generate-string]]
-   ))
+   [cheshire.core :refer [generate-string]]))
 
 ;; Disabled cache in debug
 (if (:debug env)
   (s/cache-off!))
 
 ;; Path templates
-(s/set-resource-path! (resource "templates") )
+(s/set-resource-path! (resource "templates"))
 
 (defn raw-HTML
   "Render raw HTML"

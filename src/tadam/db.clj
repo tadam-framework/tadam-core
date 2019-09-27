@@ -3,8 +3,7 @@
    [environ.core :refer [env]]
    [migratus.core :as migratus]
    [clojure.java.jdbc :as j]
-   [buddy.hashers :as hashers]
-   ))
+   [buddy.hashers :as hashers]))
 
 (defn cast-data-db
   "Cast data from project.clj and sets SQLite path to point to the resources folder"

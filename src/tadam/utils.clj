@@ -5,9 +5,8 @@
 (defn get-params
   "Get form parameters"
   [req]
-  (if (contains? req :params)
-    (clojure.walk/keywordize-keys (:params req))
-    nil))
+  (when (contains? req :params)
+    (clojure.walk/keywordize-keys (:params req))))
 
 (defn is-post
   "Check if request is POST"
@@ -23,11 +22,11 @@
   "303 See Other"
   ([req url]
    (-> (response/redirect url)
-       (assoc :session (-> req :session))
+       (assoc :session (:session req))
        (assoc :status 303)))
   ([req url status]
    (-> (response/redirect url)
-       (assoc :session (-> req :session))
+       (assoc :session (:session req))
        (assoc :status status))))
 
 (defn redirect-permanent
