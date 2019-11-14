@@ -36,7 +36,8 @@
 
 (defn render-404
   "Render 404 HTML"
-  []
+  [req template params]
   {:status  404
    :headers {"Content-Type" "text/html"}
-   :body    (s/render-file "404.html" {})})
+   :body    (s/render-file template params)
+   :session (-> req :session)})
