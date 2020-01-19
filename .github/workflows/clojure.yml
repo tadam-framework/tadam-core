@@ -1,0 +1,19 @@
+name: Main
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: lein deps
+    - name: Testing
+      run: lein test
+    - name: Run check format
+      run: lein check-format
+    - name: Run check idiomatic
+      run: lein check-idiomatic
