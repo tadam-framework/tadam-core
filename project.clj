@@ -9,6 +9,7 @@
                  [environ "1.1.0"]
                  ;; Templates
                  [selmer "1.12.12"]
+                 [markdown-clj "1.10.1"]
                  ;; JSON encoding
                  [cheshire "5.9.0"]
                  ;; Validations

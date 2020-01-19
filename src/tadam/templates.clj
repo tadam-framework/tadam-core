@@ -1,8 +1,9 @@
 (ns tadam.templates
   (:require
    [environ.core :refer [env]]
-   [clojure.java.io :refer [resource]]
+   [clojure.java.io :refer [resource input-stream]]
    [selmer.parser :as s]
+   [markdown.core :refer [md-to-html]]
    [cheshire.core :refer [generate-string]]))
 
 ;; Disabled cache in debug
@@ -25,6 +26,14 @@
   {:status  200
    :headers {"Content-Type" "text/html"}
    :body    (s/render-file template params)
+   :session (-> req :session)})
+
+(defn render-markdown
+  "Render markdown to HTML"
+  [req template params]
+  {:status  200
+   :headers {"Content-Type" "text/html"}
+   :body    (s/render (md-to-html (input-stream template)) params)
    :session (-> req :session)})
 
 (defn render-JSON
