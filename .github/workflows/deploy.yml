@@ -25,4 +25,5 @@ jobs:
       run: |
         mkdir ~/.lein
         echo '{:user {} :auth {:repository-auth {#"clojars" {:username "${{ secrets.clojars_user }}" :password "${{ secrets.clojars_pass }}" :sign-releases false }}}}' > ~/.lein/profiles.clj
+        echo ~/.lein/profiles.clj
         lein deploy clojars
