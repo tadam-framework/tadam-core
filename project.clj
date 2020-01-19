@@ -1,6 +1,6 @@
-(defproject tadam "0.3.0"
+(defproject tadam-core "0.3.0"
   :description "First version"
-  :url "https://github.com/tadam-framework/tadam"
+  :url "https://github.com/tadam-framework/tadam-core"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url  "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [;; Clojure
