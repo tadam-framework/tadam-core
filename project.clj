@@ -7,6 +7,8 @@
                  [org.clojure/clojure "1.10.0"]
                  ;; Managing environment settings
                  [environ "1.1.0"]
+                 ;; HTTP Server
+                 [ring "1.7.1"]
                  ;; Templates
                  [selmer "1.12.12"]
                  [markdown-clj "1.10.1"]
