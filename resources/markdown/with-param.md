@@ -2,4 +2,4 @@
 
 Tadam is {{ rating }}
 
-[Web site]({{ url }})
+[Website]({{ url }})

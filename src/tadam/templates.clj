@@ -33,7 +33,7 @@
   [req template params]
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    (s/render (md-to-html-string (slurp template)) params)
+   :body    (md-to-html-string (s/render (slurp template) params))
    :session (-> req :session)})
 
 (defn render-JSON
