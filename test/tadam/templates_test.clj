@@ -12,5 +12,7 @@
 (deftest render-markdown
   (testing "Simple"
     (is (= (templates/render-markdown {:req "test"} (resource "markdown/simple.md") {}) {:status 200, :headers {"Content-Type" "text/html"}, :body "<h1>Title</h1><p>Hello <strong>world</strong></p>", :session nil})))
+  (testing "With param"
+    (is (= (templates/render-markdown {:req "test"} (resource "markdown/with-param.md") {:rating "Awesome" :url "http://tadam-framework.dev"}) {:status 200, :headers {"Content-Type" "text/html"}, :body "<h1>Title</h1><p>Tadam is Awesome</p><p><a href=\"http://tadam-framework.dev\">Web site</a></p>", :session nil})))
   )
 
