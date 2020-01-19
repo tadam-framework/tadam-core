@@ -1,0 +1,27 @@
+name: Main
+
+on:
+  push:
+    branches:
+    - master
+    - release/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: lein deps
+    - name: Testing
+      run: lein test
+    - name: Run check format
+      run: lein check-format
+    - name: Run check idiomatic
+      run: lein check-idiomatic
+    - name: Config clojars
+      run: cat '{:user {} :auth {:repository-auth {#"clojars" {:username "${{ secrets.clojars_user }}" :password "${{ secrets.clojars_pass }}" :sign-releases false }}}}' > .lein/profiles.clj
+    - name: Deploy
+      run: lein deploy clojars
