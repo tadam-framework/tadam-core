@@ -1,2 +1,6 @@
 */**/.DS_Store
 .DS_Store
+
+.lein-failures
+.lein-repl-history
+target/
