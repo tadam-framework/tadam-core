@@ -27,4 +27,5 @@ jobs:
         CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
       run: lein deploy clojars
     - name: Notification
-      run: curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "${{ secrets.TELEGRAM_CHAT }}", "text": "Tadam core deploy", "disable_notification": true}' https://api.telegram.org/${{ secrets.TELEGRAM_BOT }}/sendMessage
+      run: |
+        curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "${{ secrets.TELEGRAM_CHAT }}", "text": "Tadam core deploy", "disable_notification": true}' https://api.telegram.org/${{ secrets.TELEGRAM_BOT }}/sendMessage
