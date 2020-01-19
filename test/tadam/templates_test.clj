@@ -23,4 +23,4 @@
 
 (deftest render-json
   (testing "Simple"
-    (is (= (templates/render-JSON {:req "test"} {:name "Tadam" :type "Framework"}) {:status 200, :headers {"Content-Type" "application/json"}, :body "{\"name\":\"Tadam\",\"type\":\"Framework\"}", :session nil} ))))
+    (is (= (templates/render-JSON {:req "test"} {:name "Tadam" :type "Framework"}) {:status 200, :headers {"Content-Type" "application/json"}, :body "{\"name\":\"Tadam\",\"type\":\"Framework\"}", :session nil}))))
