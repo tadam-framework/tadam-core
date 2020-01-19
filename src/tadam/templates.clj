@@ -3,7 +3,7 @@
    [environ.core :refer [env]]
    [clojure.java.io :refer [resource input-stream]]
    [selmer.parser :as s]
-   [markdown.core :refer [md-to-html]]
+   [markdown.core :refer [md-to-html-string]]
    [cheshire.core :refer [generate-string]]))
 
 ;; Disabled cache in debug
@@ -33,7 +33,7 @@
   [req template params]
   {:status  200
    :headers {"Content-Type" "text/html"}
-   :body    (s/render (md-to-html (input-stream template)) params)
+   :body    (s/render (md-to-html-string (slurp template)) params)
    :session (-> req :session)})
 
 (defn render-JSON
