@@ -1,52 +1,35 @@
 (ns tadam.templates
   (:require
    [environ.core :refer [env]]
-   [clojure.java.io :refer [resource input-stream]]
+   [tadam.responses :refer [response]]
+   [clojure.java.io :refer [resource]]
    [selmer.parser :as s]
    [markdown.core :refer [md-to-html-string]]
    [cheshire.core :refer [generate-string]]))
 
 ;; Disabled cache in debug
 (if (:debug env)
-  (s/cache-off!))
+  (s/cache-off!) ())
 
 ;; Path templates
 (s/set-resource-path! (resource "templates"))
 
 (defn raw-HTML
   "Render raw HTML"
-  [text params]
-  {:status  200
-   :headers {"Content-Type" "text/html"}
-   :body    (s/render text params)})
+  [req text params]
+  (response req (s/render text params)))
 
 (defn render-HTML
   "Render to HTML"
-  [req template params]
-  {:status  200
-   :headers {"Content-Type" "text/html"}
-   :body    (s/render-file template params)
-   :session (-> req :session)})
+  ([req template params]
+   (response req (s/render-file template params))))
 
 (defn render-markdown
   "Render markdown to HTML"
   [req template params]
-  {:status  200
-   :headers {"Content-Type" "text/html"}
-   :body    (md-to-html-string (s/render (slurp template) params))
-   :session (-> req :session)})
+  (response req (md-to-html-string (s/render (slurp template) params))))
 
 (defn render-JSON
   "Render JSON"
-  [hash-map]
-  {:status  200
-   :headers {"Content-Type" "application/json"}
-   :body    (generate-string hash-map)})
-
-(defn render-404
-  "Render 404 HTML"
-  [req template params]
-  {:status  404
-   :headers {"Content-Type" "text/html"}
-   :body    (s/render-file template params)
-   :session (-> req :session)})
+  [req hash-map]
+  (response req (generate-string hash-map) "application/json"))
