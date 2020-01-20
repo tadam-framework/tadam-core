@@ -27,7 +27,8 @@ jobs:
         CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
       run: |
         mkdir ~/.lein
-        echo '{:user {} :auth {:repository-auth{#"clojars" {:username "${{ secrets.CLOJARS_USERNAME }}" :password "${{ secrets.CLOJARS_PASSWORD }}" :sign-releases false }}}}' > ~/.lein/profiles.clj
+        echo '{:user {} :auth {:repository-auth{#"clojars" {:username "${{ secrets.CLOJARS_USERNAME }}" :password "${{ secrets.CLOJARS_PASSWORD }}" :sign-releases false }}}}' > /home/runner/.lein/profiles.clj
+        echo ~/.lein/profiles.clj
         lein deploy clojars
     - name: Send notification
       run: |
