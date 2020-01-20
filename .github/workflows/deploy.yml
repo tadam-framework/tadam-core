@@ -25,7 +25,10 @@ jobs:
       env:
         CLOJARS_USERNAME: ${{ secrets.CLOJARS_USERNAME }}
         CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
-      run: lein deploy clojars
+      run: |
+        mkdir .lein
+        echo '{:user {} :auth {:repository-auth{#"clojars" {:username "${{ secrets.CLOJARS_USERNAME }}" :password "${{ secrets.CLOJARS_PASSWORD }}" :sign-releases false }}}}' > .lein/profiles.clj
+        lein deploy clojars
     - name: Send notification
       run: |
         curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "${{ secrets.TELEGRAM_CHAT }}", "text": "Tadam core deploy", "disable_notification": true}' https://api.telegram.org/${{ secrets.TELEGRAM_BOT }}/sendMessage
