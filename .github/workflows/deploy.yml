@@ -25,6 +25,8 @@ jobs:
       run: |
         export CLOJARS_USER="${{ secrets.CLOJARS_USERNAME }}"
         export CLOJARS_PASS="${{ secrets.CLOJARS_PASSWORD }}"
+        apt update
+        apt install -y gnupg
         lein deploy clojars
     - name: Send notification
       run: |
