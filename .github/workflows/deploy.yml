@@ -23,8 +23,8 @@ jobs:
       run: lein check-idiomatic
     - name: Deploy clojars
       run: |
-        export CLOJARS_USER="${{ secrets.CLOJARS_USERNAME }}"
-        export CLOJARS_PASS="${{ secrets.CLOJARS_PASSWORD }}"
+        mkdir ~/.lein
+        echo '{#"https://repo.clojars.org" {:username "${{ secrets.CLOJARS_USERNAME }}" :password "${{ secrets.CLOJARS_PASSWORD }}"}}' > ~/.lein/credentials.clj
         sudo apt update
         sudo apt install -y gnupg
         lein deploy clojars
