@@ -22,10 +22,10 @@ jobs:
     - name: Run check idiomatic
       run: lein check-idiomatic
     - name: Deploy clojars
-      env:
-        CLOJARS_USER: ${{ secrets.CLOJARS_USERNAME }}
-        CLOJARS_PASS: ${{ secrets.CLOJARS_PASSWORD }}
-      run: lein deploy clojars
+      run: |
+        export CLOJARS_USER="${{ secrets.CLOJARS_USERNAME }}"
+        export CLOJARS_PASS="${{ secrets.CLOJARS_PASSWORD }}"
+        lein deploy clojars
     - name: Send notification
       run: |
         curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "${{ secrets.TELEGRAM_CHAT }}", "text": "Tadam core deploy", "disable_notification": true}' https://api.telegram.org/${{ secrets.TELEGRAM_BOT }}/sendMessage
