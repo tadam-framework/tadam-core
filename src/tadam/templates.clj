@@ -24,6 +24,11 @@
   ([req template params]
    (response req (s/render-file template params))))
 
+(defn render-404
+  "Render 404 HTML"
+  ([req template params]
+   (response req (s/render-file template params) 404)))
+
 (defn render-markdown
   "Render markdown to HTML"
   [req template params]
