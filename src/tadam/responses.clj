@@ -2,21 +2,24 @@
   (:require
    [ring.util.response :as ring-response]))
 
+(def headers {"X-Powered-By" "Clojure/Tadam"
+              "Content-Type" "text/html"})
+
 (defn response
   "Return response"
   ([req body]
    {:status  200
-    :headers {"Content-Type" "text/html"}
+    :headers headers
     :body    body
     :session (-> req :session)})
   ([req body status]
    {:status  status
-    :headers {"Content-Type" "text/html"}
+    :headers headers
     :body    body
     :session (-> req :session)})
   ([req body status content-type]
    {:status  status
-    :headers {"Content-Type" content-type}
+    :headers (assoc headers "Content-Type" content-type)
     :body    body
     :session (-> req :session)}))
 
