@@ -8,7 +8,7 @@
   [req]
   (= (req :request-method) :post))
 
-(defn get-json
+(defn get-JSON
   "Get JSON from request"
   [req]
   (parse-string (slurp (-> req :body)) true))
