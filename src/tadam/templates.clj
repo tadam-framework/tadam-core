@@ -36,5 +36,7 @@
 
 (defn render-JSON
   "Render JSON"
-  [req hash-map]
-  (response req (generate-string hash-map) 200 "application/json"))
+  ([req hash-map]
+   (response req (generate-string hash-map) 200 "application/json"))
+  ([req hash-map status]
+   (response req (generate-string hash-map) status "application/json")))
