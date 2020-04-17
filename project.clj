@@ -1,4 +1,4 @@
-(defproject tadam-core "0.3.4"
+(defproject tadam-core "0.3.5"
   :description "First version"
   :url "https://github.com/tadam-framework/tadam-core"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
