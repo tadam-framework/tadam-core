@@ -1,9 +1,13 @@
-# Tadam Core
+<p align="center">
+  <img width="200" src="https://raw.githubusercontent.com/tadam-framework/tadam-website/master/img/tadam-logo.svg">
+</p>
+<h1 align="center">Tadam Framework</h1>
+<h2 align="center">Core</h2>
+<p align="center">
+  <img src="https://clojars.org/tadam-core/latest-version.svg" width="400">
+</p>
 
-![](https://clojars.org/tadam-core/latest-version.svg)
-
-Heart of the beast.
-
+## Contribute
 Any Merge Request with sweetness will be welcome.
 
 ## License
