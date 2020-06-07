@@ -1,5 +1,7 @@
 # Tadam Core
 
+![](https://clojars.org/tadam-core/latest-version.svg)
+
 Heart of the beast.
 
 Any Merge Request with sweetness will be welcome.
