@@ -10,7 +10,7 @@
 (defn get-JSON
   "Get JSON from request"
   [req]
-  (parse-string (slurp (-> req :body)) true))
+  (parse-string (slurp (:body req)) true))
 
 (defn lazy-contains?
   "Check if contains lazy ignore"
