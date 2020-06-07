@@ -1,7 +1,6 @@
 (ns tadam.utils
   (:require
-   [cheshire.core :refer [parse-string]]
-   ))
+   [cheshire.core :refer [parse-string]]))
 
 (defn is-post
   "Check if request is POST"
