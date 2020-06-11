@@ -7,7 +7,7 @@
   [config to subject content-html content-plain]
   (send-message {:host (:smtp-host config)
                  :user (:smtp-user config)
-                 :pass (:smtp-pass config)
+                 :pass (:smtp-password config)
                  :tls  (:smtp-tls config)
                  :port (:smtp-port config)}
                 {:from    (:smtp-from config)
