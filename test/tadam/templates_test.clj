@@ -3,11 +3,11 @@
             [tadam.templates :as templates]
             [clojure.java.io :refer [resource]]))
 
-(deftest raw-HTML
-  (testing "Raw HTML simple"
-    (is (= (templates/raw-HTML {:req "test"} "<html><body></body></html>" {}) {:status 200, :headers {"X-Powered-By" "Clojure/Tadam", "Content-Type" "text/html"}, :body "<html><body></body></html>", :session nil})))
-  (testing "Raw HTML with param"
-    (is (= (templates/raw-HTML {:req "test"} "<html><body>{{ hello }}</body></html>" {:hello "world"}) {:status 200, :headers {"X-Powered-By" "Clojure/Tadam", "Content-Type" "text/html"}, :body "<html><body>world</body></html>", :session nil}))))
+(deftest render-template
+  (testing "Simple"
+    (is (= (templates/render-template (resource "html/simple.html") {}) "<html><body><h1>Title</h1><p>Tadam is Awesome</p><p><a href='https://tadam-framework.dev'>Website</a></p></body></html>\n")))
+  (testing "With param"
+    (is (= (templates/render-template (resource "html/with-param.html") {:rating "Awesome" :url "https://tadam-framework.dev"}) "<html><body><h1>Title</h1><p>Tadam is Awesome</p><p><a href='https://tadam-framework.dev'>Website</a></p></body></html>\n"))))
 
 (deftest render-HTML
   (testing "Simple"

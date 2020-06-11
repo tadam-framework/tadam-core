@@ -1,6 +1,5 @@
 (ns tadam.db
   (:require
-   [environ.core :refer [env]]
    [migratus.core :as migratus]
    [clojure.java.jdbc :as j]
    [buddy.hashers :as hashers]))
@@ -12,7 +11,7 @@
     (let [cast-data (clojure.edn/read-string raw-data)]
       (assoc cast-data :subname (.getFile (clojure.java.io/resource (:subname cast-data)))))))
 
-(def db (cast-data-db (env :db)))
+(def db (cast-data-db ""))
 
 ;;;; QUERIES
 
