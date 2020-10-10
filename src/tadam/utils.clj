@@ -12,6 +12,11 @@
   [req]
   (parse-string (slurp (:body req)) true))
 
+(defn get-header
+  "Get header value from request"
+  [req key]
+  (-> req :headers (get key)))
+
 (defn lazy-contains?
   "Check if contains lazy ignore"
   [col key]
