@@ -1,4 +1,4 @@
-(defproject tadam-core "0.4.3"
+(defproject tadam-core "0.4.4"
   :description "Tadam Framework Core: Library to create dynamic pages"
   :url "https://github.com/tadam-framework/tadam-core"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
@@ -20,12 +20,13 @@
                  [buddy/buddy-core "1.6.0"]
                  [buddy/buddy-hashers "1.4.0"]
                  ;; Send emails
-                 [clj-kondo "RELEASE"]
-                 [com.draines/postal "2.0.3"]]
+                 [com.draines/postal "2.0.3"]
+                 ;; Linter
+                 [clj-kondo "RELEASE"]]
   :plugins [;; DEV TOOLS
             ;;; Check idiomatic bug
             [lein-kibit "0.1.7"]]
   ;; ALIAS
   :aliases {"check-idiomatic" ["kibit" "src"]
-            "check-lint"       ["run" "-m" "clj-kondo.main" "--lint" "src"]}
+            "check-lint"      ["run" "-m" "clj-kondo.main" "--lint" "src"]}
   :repl-options {:init-ns tadam.core})

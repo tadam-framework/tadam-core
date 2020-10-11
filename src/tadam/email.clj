@@ -2,7 +2,7 @@
   (:require
    [postal.core :refer [send-message]]))
 
-(defn send
+(defn send-email
   "Send email"
   [config to subject content-html content-plain]
   (send-message {:host (:smtp-host config)
