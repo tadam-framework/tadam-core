@@ -11,12 +11,12 @@
 
 It needs to be executed at the root of the project and have `Leiningen` installed.
 
-### Check
+### Lint
 
 It checks linguistically and syntaxically if the code is correct.
 
 ``` shell
-make check
+make lint
 ```
 
 ### Build

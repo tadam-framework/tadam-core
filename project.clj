@@ -20,13 +20,12 @@
                  [buddy/buddy-core "1.6.0"]
                  [buddy/buddy-hashers "1.4.0"]
                  ;; Send emails
+                 [clj-kondo "RELEASE"]
                  [com.draines/postal "2.0.3"]]
   :plugins [;; DEV TOOLS
             ;;; Check idiomatic bug
-            [lein-kibit "0.1.7"]
-            ;;; Check format
-            [lein-cljfmt "0.6.4"]]
+            [lein-kibit "0.1.7"]]
   ;; ALIAS
   :aliases {"check-idiomatic" ["kibit" "src"]
-            "check-format"    ["cljfmt" "check"]}
+            "check-lint"       ["run" "-m" "clj-kondo.main" "--lint" "src"]}
   :repl-options {:init-ns tadam.core})
