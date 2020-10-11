@@ -7,6 +7,34 @@
   <img src="https://clojars.org/tadam-core/latest-version.svg" width="400">
 </p>
 
+## Dev tools
+
+It needs to be executed at the root of the project and have `Leiningen` installed.
+
+### Check
+
+It checks linguistically and syntaxically if the code is correct.
+
+``` shell
+make check
+```
+
+### Build
+
+Build a JAR ready to distribute.
+
+``` shell
+make build
+```
+
+### Deploy
+
+Distributed in Clojars.
+
+``` shell
+make deploy
+```
+
 ## Contribute
 Any Merge Request with sweetness will be welcome.
 

@@ -1,5 +1,5 @@
-(defproject tadam-core "0.4.2"
-  :description "First version"
+(defproject tadam-core "0.4.3"
+  :description "Tadam Framework Core: Library to create dynamic pages"
   :url "https://github.com/tadam-framework/tadam-core"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url  "https://www.eclipse.org/legal/epl-2.0/"}
@@ -25,9 +25,7 @@
             ;;; Check idiomatic bug
             [lein-kibit "0.1.7"]
             ;;; Check format
-            [lein-cljfmt "0.6.4"]
-            ;;; Generate documentation
-            [lein-codox "0.10.7"]]
+            [lein-cljfmt "0.6.4"]]
   ;; ALIAS
   :aliases {"check-idiomatic" ["kibit" "src"]
             "check-format"    ["cljfmt" "check"]}
